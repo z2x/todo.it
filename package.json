@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://z2x.github.io/todo.it",
   "dependencies": {
+    "normalize.css": "^8.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
