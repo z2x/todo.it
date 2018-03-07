@@ -25,7 +25,7 @@ class App extends Component {
     let todos = this.state.todoList.map((item, index) => {
       return (
         <li key={index}>
-          <TodoItem todo={item} onToggle={this.toggle.bind(this)}/>
+          <TodoItem todo={item} onToggle={this.toggle.bind(this)} onDelete={this.delete.bind(this)}/>
         </li>
       );
     });
@@ -34,9 +34,7 @@ class App extends Component {
       <div className="App">
         <h1>我的待办</h1>
         <div className="inputWrapper">
-          <TodoInput content={this.state.newTodo}
-      onChange={this.changeTitle.bind(this)}
-      onSubmit={this.addTodo.bind(this)} />
+          <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         </div>
         <ol>
           {todos}
@@ -68,6 +66,11 @@ class App extends Component {
       newTodo: '',
       todoList: this.state.todoList
     });
+  }
+
+  delete(event, todo) {
+    todo.delete = true;
+    this.setState(this.state);
   }
 }
 
