@@ -4,8 +4,7 @@ class TodoItem extends Component {
   render() {
     return (
       <div>
-        <input type="checkbox" checked={this.props.todo.status === 'completed'}
-      onChange={this.toggle.bind(this)}/> {this.props.todo.title}
+        <input type="checkbox" checked={this.props.todo.status === 'completed'} onChange={this.toggle.bind(this)}/> {this.props.todo.title}
         <button onClick={this.delete.bind(this)}>删除</button>
       </div>
     );
