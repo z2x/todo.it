@@ -2,7 +2,7 @@
   "name": "todo.it",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://z2x.github.io/todo.it",
+  "homepage": "http://z2x.github.io/todo.it/build",
   "dependencies": {
     "normalize.css": "^8.0.0",
     "react": "^16.2.0",
