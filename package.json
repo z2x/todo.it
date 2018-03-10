@@ -4,7 +4,10 @@
   "private": true,
   "homepage": "https://z2x.github.io/todo.it",
   "dependencies": {
+    "bootstrap": "^4.0.0",
+    "node-sass-chokidar": "^1.1.0",
     "normalize.css": "^8.0.0",
+    "npm-run-all": "^4.1.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-hot-loader": "^4.0.0",

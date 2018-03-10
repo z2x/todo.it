@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import 'normalize.css';
-import './reset.css';
 import './App.css';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
@@ -26,14 +25,16 @@ class App extends Component {
     });
 
     return (
-      <div className="toDoApp">
-        <img src={logo} className='App-logo'/>
-        <div className="inputWrapper">
-          <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
+      <div className="container">
+        <div className="toDoApp">
+          <div className="App-logo">
+            <img src={logo} />
+          </div>
+          <div className="inputWrapper">
+            <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
+            <ol>{todos}</ol>
+          </div>
         </div>
-        <ol>
-          {todos}
-        </ol>
       </div>
     );
   }
