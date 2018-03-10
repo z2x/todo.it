@@ -5,6 +5,7 @@
   "homepage": "https://z2x.github.io/todo.it",
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "leancloud-storage": "^3.6.0",
     "node-sass-chokidar": "^1.1.0",
     "normalize.css": "^8.0.0",
     "npm-run-all": "^4.1.2",
