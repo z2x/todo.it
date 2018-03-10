@@ -7,11 +7,19 @@ import TodoItem from './TodoItem';
 import * as localStore from './localStore';
 import AV from 'leancloud-storage';
 
-let APP_ID = 'WiamNEuR1RvvIikVyFhpAbUB-gzGzoHsz';
-let APP_KEY = 'ewLqQgvGfn4Hcjs2xxfGxE4L';
+var APP_ID = 'WiamNEuR1RvvIikVyFhpAbUB-gzGzoHsz';
+var APP_KEY = 'ewLqQgvGfn4Hcjs2xxfGxE4L';
 AV.init({
   appId: APP_ID,
   appKey: APP_KEY
+})
+
+var TestObject = AV.Object.extend('TestObject');
+var testObject = new TestObject();
+testObject.save({
+  words: 'Hello World!'
+}).then(function(object) {
+  alert('LeanCloud Rocks!');
 });
 
 class App extends Component {
@@ -36,7 +44,7 @@ class App extends Component {
       <div className="container">
         <div className="toDoApp">
           <div className="App-logo">
-            <img src={logo} />
+            <img src={logo} alt=""/>
           </div>
           <div className="inputWrapper">
             <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
