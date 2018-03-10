@@ -26,8 +26,8 @@ class App extends Component {
     });
 
     return (
-      <div className="App">
-        <h1>我的待办</h1>
+      <div className="toDoApp">
+        <img src={logo} className='App-logo'/>
         <div className="inputWrapper">
           <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
         </div>
@@ -73,13 +73,11 @@ class App extends Component {
   }
 }
 
-
-
-export default App;
-
 let id = 0;
 
 function idMaker() {
   id += 1;
   return id;
 }
+
+export default App;
