@@ -5,11 +5,13 @@ import './App.css';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import UserDialog from './UserDialog';
+import { getCurrentUser } from './leanCloud';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: getCurrentUser() || {},
       newTodo: '',
       todoList: []
     };
@@ -33,27 +35,33 @@ class App extends Component {
           <div className="inputWrapper">
             <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
             <ol>{todos}</ol>
-            <UserDialog />
+            {this.state.user.id ?
+        null :
+        <UserDialog
+        onSignUp={this.onSignUpOrSignIn.bind(this)}
+        onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
           </div>
         </div>
       </div>
     );
   }
 
+  onSignUpOrSignIn(user) {
+    let stateCopy = JSON.parse(JSON.stringify(this.state));
+    stateCopy.user = user;
+    this.setState(stateCopy);
+  }
   componentDidUpdate() {}
-
   toggle(e, todo) {
     todo.status = todo.status === 'completed' ? '' : 'completed';
     this.setState(this.state);
   }
-
   changeTitle(event) {
     this.setState({
       newTodo: event.target.value,
       todoList: this.state.todoList
     });
   }
-
   addTodo(event) {
     this.state.todoList.push({
       id: idMaker(),
@@ -66,12 +74,13 @@ class App extends Component {
       todoList: this.state.todoList
     });
   }
-
   delete(event, todo) {
     todo.deleted = true;
     this.setState(this.state);
   }
 }
+
+export default App;
 
 let id = 0;
 
@@ -79,5 +88,3 @@ function idMaker() {
   id += 1;
   return id;
 }
-
-export default App;
