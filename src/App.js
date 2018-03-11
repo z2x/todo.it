@@ -4,7 +4,7 @@ import 'normalize.css';
 import './App.css';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
-import * as localStore from './localStore';
+import UserDialog from './UserDialog';
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +33,7 @@ class App extends Component {
           <div className="inputWrapper">
             <TodoInput content={this.state.newTodo} onChange={this.changeTitle.bind(this)} onSubmit={this.addTodo.bind(this)} />
             <ol>{todos}</ol>
+            <UserDialog />
           </div>
         </div>
       </div>
