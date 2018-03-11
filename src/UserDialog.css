@@ -1,46 +1,67 @@
+
 .UserDialog-Wrapper {
   position: fixed;
-  top: 0;
+  top: 20%;
   left: 0;
   bottom: 0;
   right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: arial;
+  color: #777777;
 }
 
 .UserDialog {
   border: 1px solid black;
-  border-radius: 4px;
-  min-width: 20em;
+  border-radius: 5px;
+  min-width: 30em;
   background-color: white;
-  border: 1px solid #aaa;
-  box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.35);
+  border: 1px solid white;
+  box-shadow: 10px 10px 18px -7px rgba(143,140,143,0.68);
+  text-align: center;
 }
 
-UserDialog>nav:first-child {
+.UserDialog h2 {
+  color: #676ff7;
+}
+
+UserDialog>nav:nth-child(2) {
   padding: 1em;
-  margin-left: -2em;
+  /* margin-left: -2em; */
 }
 
-.UserDialog>nav:first-child label {
-  margin-left: 2em;
+.UserDialog>nav:nth-child(2) label {
+  padding: 0 3em 0 1em;
   cursor: pointer;
 }
 
 .UserDialog>.panes {
-  padding: 0 1em 1em;
+  padding: 1em 1em 1em;
 }
 
 .UserDialog form>.row {
   display: flex;
+  justify-content: center;
   padding: .3em 0;
 }
-
+.UserDialog form>.row input {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(249, 108, 112);
+}
 .UserDialog form>.row>label:first-child {
-  width: 4em;
+  width: 10em;
 }
 
-.UserDialog form>.row.actions {
-  padding-left: 4em;
+.UserDialog form>.row.actions button {
+  border-radius: 4px;
+  text-decoration: none;
+  outline: none;
+  border: 0.5px solid rgb(217, 217, 229);
+  padding: .2em;
+  margin-top: 1em;
+  cursor: pointer;
+  color: #777777;
+  background-color: white;
 }
