@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './UserDialog.css';
-
-class UserDialog extends Component {
+export default class UserDialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,55 +18,52 @@ class UserDialog extends Component {
   }
   signUp(e) {}
   signIn(e) {}
-  changeUsername(e) {
+  changeFormData(key, e) {
     let stateCopy = JSON.parse(JSON.stringify(this.state));
-    stateCopy.formData.username = e.target.value;
-    this.setState(stateCopy);
-  }
-  changePassword(e) {
-    let stateCopy = JSON.parse(JSON.stringify(this.state));
-    stateCopy.formData.password = e.target.value;
+    stateCopy.formData[key] = e.target.value;
     this.setState(stateCopy);
   }
   render() {
     let signUpForm = (
-    <form action="" className="signUp" onSubmit={this.signUp.bind(this)}>
+    <form className="signUp" onSubmit={this.signUp.bind(this)}>
         <div className="row">
-          <label htmlFor="">user name</label>
-          <input type="text"/>
+          <label>username</label>
+          <input type="text" value={this.state.formData.username}
+    onChange={this.changeFormData.bind(this, 'username')}/>
         </div>
         <div className="row">
-          <label htmlFor="">password</label>
-          <input type="password"/>
+          <label>password</label>
+          <input type="password" value={this.state.formData.password}
+    onChange={this.changeFormData.bind(this, 'password')}/>
         </div>
         <div className="row actions">
           <button type="submit">sign up</button>
         </div>
       </form>
     );
-
     let signInForm = (
-    <form action="" className="signUp" onSubmit={this.signIn.bind(this)}>
+    <form className="signIn" onSubmit={this.signIn.bind(this)}>
         <div className="row">
-          <label htmlFor="">user name</label>
-          <input type="text"/>
+          <label>username</label>
+          <input type="text" value={this.state.formData.username}
+    onChange={this.changeFormData.bind(this, 'username')}/>
         </div>
         <div className="row">
-          <label htmlFor="">password</label>
-          <input type="password"/>
+          <label>password</label>
+          <input type="password" value={this.state.formData.password}
+    onChange={this.changeFormData.bind(this, 'password')}/>
         </div>
         <div className="row actions">
           <button type="submit">sign in</button>
         </div>
       </form>
     );
-
     return (
       <div className="UserDialog-Wrapper">
         <div className="UserDialog">
           <nav onChange={this.switch.bind(this)}>
             <label><input type="radio" value="signUp" checked={this.state.selected === 'signUp'}/> sign up</label>
-            <label><input type="radio" value="signIn" checked={this.state.selected === 'signIn'}/>sign in</label>
+            <label><input type="radio" value="signIn" checked={this.state.selected === 'signIn'}/> sign in</label>
           </nav>
           <div className="panes">
             {this.state.selected === 'signUp' ? signUpForm : null}
@@ -78,5 +74,3 @@ class UserDialog extends Component {
     );
   }
 }
-
-export default UserDialog;
